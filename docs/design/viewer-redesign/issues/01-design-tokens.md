@@ -1,6 +1,6 @@
 # Viewer redesign: design tokens & app header/wordmark (light + dark)
 
-> Part of the viewer UI redesign (see main tracking issue). **Foundation — land first.**
+> Part of the viewer UI redesign (see #1319). **Foundation — land first.**
 
 ## Summary
 
@@ -32,8 +32,8 @@ mockup for the target colors, surface elevations and text hierarchy.
 
 ## Out of scope
 
-- Per-screen layout changes (owned by #03–#09).
-- The icon assets themselves (#02).
+- Per-screen layout changes (owned by #1322–#1328).
+- The icon assets themselves (#1321).
 
 ## Acceptance criteria
 
@@ -46,5 +46,11 @@ mockup for the target colors, surface elevations and text hierarchy.
 
 - Header markup must be CSP-safe (no inline styles/scripts).
 - New files need SPDX headers (`make license-add`).
+
+## Parallelization & conflicts
+
+Foundational — **land this first**; #1322–#1329 all consume the tokens defined here. Edits
+land in `static/style.css` `:root` and the shared header partial, so merge this before the
+per-screen work starts and coordinate with #1321 (icons).
 
 **AI disclosure:** The scope, decisions and issue breakdown are my own. An AI assistant (Claude Code) was used only to polish the English wording.

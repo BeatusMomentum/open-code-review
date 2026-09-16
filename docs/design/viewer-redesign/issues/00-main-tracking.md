@@ -36,6 +36,22 @@ Per-screen (parallelizable after the foundation):
 Polish (last):
 - [ ] #1329 — Responsive, accessibility & template/visual tests
 
+## Parallelization & conflicts
+
+**Order:** land #1320 (tokens) and #1321 (icons) first — every screen consumes the shared CSS
+variables and icon mechanism they establish. Do #1329 (responsive/a11y/tests) last.
+
+**Safe to run in parallel:** #1322 (Repositories), #1323 (Sessions) and #1328 (Compare) each
+own a separate template file, so they don't collide.
+
+**Coordinate closely:** #1324, #1325, #1326 and #1327 all edit the same `session.html`
+(#1326/#1327 also `session.js`). Assign a single owner for that file, or serialize these four,
+to avoid heavy merge conflicts.
+
+**Shared by everyone:** `static/style.css` is touched by every screen. Keep each change scoped
+to a clearly delimited section, rebase on `main` often, and land #1320 first so the token
+churn is behind you.
+
 ## Design fidelity vs. current features
 
 The mockups were produced during active development, so the live viewer has features that
@@ -45,7 +61,7 @@ navigation). Guiding rule:
 - **Keep every existing feature.** The redesign is visual — do not drop functionality that
   isn't in a mockup.
 - **Where a mockup exists, match it.** Where it doesn't, style the feature to the mockup's
-  visual language (tokens, tables, badges, spacing from #01/#02) so it stays consistent.
+  visual language (tokens, tables, badges, spacing from #1320/#1321) so it stays consistent.
 - **Resolve specifics in the PR.** Small layout/wording ambiguities are expected; settle
   them during review rather than blocking on a pixel-perfect spec.
 
@@ -80,6 +96,6 @@ Mockups for this effort (light + dark): Repositories, Sessions, and Session deta
 ## How to pick this up
 
 Comment on a sub-issue to claim it. Start from the mockup for that screen and compare
-against the live viewer (`ocr viewer`). Foundation issues (#01, #02) unblock the rest.
+against the live viewer (`ocr viewer`). Foundation issues (#1320, #1321) unblock the rest.
 
 **AI disclosure:** The scope, decisions and issue breakdown are my own. An AI assistant (Claude Code) was used only to polish the English wording.

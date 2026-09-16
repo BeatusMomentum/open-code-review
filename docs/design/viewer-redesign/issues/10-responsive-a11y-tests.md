@@ -1,6 +1,6 @@
 # Viewer redesign: responsive, accessibility & tests
 
-> Part of the viewer UI redesign (see main tracking issue). **Land last**, after the screens.
+> Part of the viewer UI redesign (see #1319). **Land last**, after the screens.
 
 ## Summary
 
@@ -28,6 +28,11 @@ test coverage for the new markup/styles.
 ## Notes
 
 - Optional follow-up (separate issue if desired): a JS light/dark theme toggle with
-  `localStorage` persistence, building on the `prefers-color-scheme` default from #01.
+  `localStorage` persistence, building on the `prefers-color-scheme` default from #1320.
+
+## Parallelization & conflicts
+
+**Land last**, after the screens (#1322–#1328) are restyled. This is cross-cutting polish and
+test coverage over the final markup, so starting early means reworking against moving targets.
 
 **AI disclosure:** The scope, decisions and issue breakdown are my own. An AI assistant (Claude Code) was used only to polish the English wording.

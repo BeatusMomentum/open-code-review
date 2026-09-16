@@ -1,6 +1,6 @@
 # Viewer redesign: Repositories page
 
-> Part of the viewer UI redesign (see main tracking issue). Depends on #01, #02.
+> Part of the viewer UI redesign (see #1319). Depends on #1320, #1321.
 
 ## Summary
 
@@ -38,5 +38,11 @@ input, and a table with columns **Repository | Sessions | Last Modified | Action
 - Matches the mockup in light and dark.
 - Search and pagination still work; no CSP console errors.
 - `make check` and `make test` pass; add/adjust template tests as needed.
+
+## Parallelization & conflicts
+
+Depends on #1320/#1321. Owns `repos.html` + `repos.js`, so it runs in parallel with the other
+screens (#1323, #1328). The only shared file is `static/style.css` — keep changes to the repos
+section and rebase often.
 
 **AI disclosure:** The scope, decisions and issue breakdown are my own. An AI assistant (Claude Code) was used only to polish the English wording.

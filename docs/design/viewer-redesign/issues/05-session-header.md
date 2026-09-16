@@ -1,6 +1,6 @@
 # Viewer redesign: Session detail — header / meta bar
 
-> Part of the viewer UI redesign (see main tracking issue). Depends on #01, #02.
+> Part of the viewer UI redesign (see #1319). Depends on #1320, #1321.
 
 ## Summary
 
@@ -25,15 +25,22 @@ a compact meta row: **CWD · BRANCH · MODE · FROM · TO · MODEL · DURATION �
 - [ ] Restyle the title row with the back chevron.
 - [ ] Lay out the meta fields as a compact, labeled row/grid matching the mockup, including
       truncation for long CWD/branch values.
-- [ ] Apply status styling (complete/partial/failed) consistent with tokens from #01.
+- [ ] Apply status styling (complete/partial/failed) consistent with tokens from #1320.
 
 ## Out of scope
 
-- Coverage/Token cards (#06), comments (#07), tasks/conversations (#08).
+- Coverage/Token cards (#1325), comments (#1326), tasks/conversations (#1327).
 
 ## Acceptance criteria
 
 - Header + meta bar match the mockup in light and dark.
 - `make check` and `make test` pass.
+
+## Parallelization & conflicts
+
+Depends on #1320/#1321. **Conflict hotspot:** #1324 (this one — header/meta), #1325, #1326 and
+#1327 all edit `session.html`. Coordinate with the other three — ideally one owner for
+`session.html`, or serialize these four — and rebase frequently. `static/style.css` is shared
+with all screens too.
 
 **AI disclosure:** The scope, decisions and issue breakdown are my own. An AI assistant (Claude Code) was used only to polish the English wording.

@@ -1,6 +1,6 @@
 # Viewer redesign: integrate the shared SVG icon set
 
-> Part of the viewer UI redesign (see main tracking issue). **Foundation — land first.**
+> Part of the viewer UI redesign (see #1319). **Foundation — land first.**
 
 ## Summary
 
@@ -38,7 +38,7 @@ search, status/action affordances, etc. Source assets: 7 SVG icons from the desi
 
 ## Out of scope
 
-- Applying icons to each screen's final layout (done incrementally in #03–#09; this issue
+- Applying icons to each screen's final layout (done incrementally in #1322–#1328; this issue
   lands the assets + rendering mechanism and swaps the obvious ones like back/search/logo).
 
 ## Acceptance criteria
@@ -52,5 +52,11 @@ search, status/action affordances, etc. Source assets: 7 SVG icons from the desi
 ## Notes
 
 - Keep SVGs small; strip editor cruft/`<defs>` bloat from the Figma export.
+
+## Parallelization & conflicts
+
+Foundational — land alongside/after #1320 and before the per-screen issues. Mostly adds new
+files (icon assets + a render partial) plus one `//go:embed` line, so it rarely conflicts with
+the screen work.
 
 **AI disclosure:** The scope, decisions and issue breakdown are my own. An AI assistant (Claude Code) was used only to polish the English wording.

@@ -1,6 +1,6 @@
 # Viewer redesign: Compare page
 
-> Part of the viewer UI redesign (see main tracking issue). Depends on #01, #02.
+> Part of the viewer UI redesign (see #1319). Depends on #1320, #1321.
 
 ## Summary
 
@@ -9,7 +9,7 @@ Restyle the session compare page (`GET /r/{repo}/compare`) to the redesigned sys
 ## Design reference
 
 No dedicated mockup was provided for this screen — apply the same tokens, header, tables and
-badges established by #01/#02 and the session-detail issues so Compare stays visually
+badges established by #1320/#1321 and the session-detail issues so Compare stays visually
 consistent. Confirm layout details with a maintainer if ambiguous.
 
 ## Current state
@@ -31,5 +31,11 @@ consistent. Confirm layout details with a maintainer if ambiguous.
 
 - Visually consistent with the redesigned screens in light and dark.
 - `make check` and `make test` pass.
+
+## Parallelization & conflicts
+
+Depends on #1320/#1321. Owns `compare.html`, so it runs in parallel with the other screens
+(#1322, #1323). The only shared file is `static/style.css` — keep changes to the compare
+section and rebase often.
 
 **AI disclosure:** The scope, decisions and issue breakdown are my own. An AI assistant (Claude Code) was used only to polish the English wording.

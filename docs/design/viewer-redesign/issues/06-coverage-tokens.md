@@ -1,6 +1,6 @@
 # Viewer redesign: Session detail — Coverage & Token Usage
 
-> Part of the viewer UI redesign (see main tracking issue). Depends on #01, #02.
+> Part of the viewer UI redesign (see #1319). Depends on #1320, #1321.
 
 ## Summary
 
@@ -32,11 +32,18 @@ Write / LLM Failures) with a collapsible **File breakdown** table.
 
 ## Out of scope
 
-- Review comments (#07), tasks/conversations (#08).
+- Review comments (#1326), tasks/conversations (#1327).
 
 ## Acceptance criteria
 
 - Cards + breakdown table match the mockup in light and dark; collapse/expand still works.
 - `make check` and `make test` pass.
+
+## Parallelization & conflicts
+
+Depends on #1320/#1321. **Conflict hotspot:** #1325 (this one — Coverage & Token Usage), #1324,
+#1326 and #1327 all edit `session.html`. Coordinate with the other three — ideally one owner
+for `session.html`, or serialize these four — and rebase frequently. `static/style.css` is
+shared with all screens too.
 
 **AI disclosure:** The scope, decisions and issue breakdown are my own. An AI assistant (Claude Code) was used only to polish the English wording.
