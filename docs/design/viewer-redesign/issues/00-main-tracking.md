@@ -21,20 +21,20 @@ CSP-safe and server-rendered.
 ## Scope & sub-issues
 
 Foundational (land first):
-- [ ] #01 — Design tokens & app header/wordmark (light + dark)
-- [ ] #02 — Shared SVG icon set integration
+- [ ] #1320 — Design tokens & app header/wordmark (light + dark)
+- [ ] #1321 — Shared SVG icon set integration
 
 Per-screen (parallelizable after the foundation):
-- [ ] #03 — Repositories page
-- [ ] #04 — Sessions list page
-- [ ] #05 — Session detail: header / meta bar
-- [ ] #06 — Session detail: Coverage & Token Usage
-- [ ] #07 — Session detail: Review Comments
-- [ ] #08 — Session detail: Files Reviewed, Session Tasks & Conversations
-- [ ] #09 — Compare page
+- [ ] #1322 — Repositories page
+- [ ] #1323 — Sessions list page
+- [ ] #1324 — Session detail: header / meta bar
+- [ ] #1325 — Session detail: Coverage & Token Usage
+- [ ] #1326 — Session detail: Review Comments
+- [ ] #1327 — Session detail: Files Reviewed, Session Tasks & Conversations
+- [ ] #1328 — Compare page
 
 Polish (last):
-- [ ] #10 — Responsive, accessibility & template/visual tests
+- [ ] #1329 — Responsive, accessibility & template/visual tests
 
 ## Design fidelity vs. current features
 
@@ -82,4 +82,4 @@ Mockups for this effort (light + dark): Repositories, Sessions, and Session deta
 Comment on a sub-issue to claim it. Start from the mockup for that screen and compare
 against the live viewer (`ocr viewer`). Foundation issues (#01, #02) unblock the rest.
 
-<!-- AI disclosure: fill in before posting, e.g. "Drafted with the help of <tool/model>; author reviewed all content." -->
+**AI disclosure:** The scope, decisions and issue breakdown are my own. An AI assistant (Claude Code) was used only to polish the English wording.

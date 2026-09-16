@@ -53,4 +53,4 @@ search, status/action affordances, etc. Source assets: 7 SVG icons from the desi
 
 - Keep SVGs small; strip editor cruft/`<defs>` bloat from the Figma export.
 
-<!-- AI disclosure: fill in before posting. -->
+**AI disclosure:** The scope, decisions and issue breakdown are my own. An AI assistant (Claude Code) was used only to polish the English wording.

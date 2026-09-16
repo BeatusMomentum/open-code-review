@@ -39,4 +39,4 @@ input, and a table with columns **Repository | Sessions | Last Modified | Action
 - Search and pagination still work; no CSP console errors.
 - `make check` and `make test` pass; add/adjust template tests as needed.
 
-<!-- AI disclosure: fill in before posting. -->
+**AI disclosure:** The scope, decisions and issue breakdown are my own. An AI assistant (Claude Code) was used only to polish the English wording.

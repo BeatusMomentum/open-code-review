@@ -47,4 +47,4 @@ mockup for the target colors, surface elevations and text hierarchy.
 - Header markup must be CSP-safe (no inline styles/scripts).
 - New files need SPDX headers (`make license-add`).
 
-<!-- AI disclosure: fill in before posting. -->
+**AI disclosure:** The scope, decisions and issue breakdown are my own. An AI assistant (Claude Code) was used only to polish the English wording.

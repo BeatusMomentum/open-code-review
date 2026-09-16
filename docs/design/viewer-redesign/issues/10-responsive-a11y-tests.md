@@ -30,4 +30,4 @@ test coverage for the new markup/styles.
 - Optional follow-up (separate issue if desired): a JS light/dark theme toggle with
   `localStorage` persistence, building on the `prefers-color-scheme` default from #01.
 
-<!-- AI disclosure: fill in before posting. -->
+**AI disclosure:** The scope, decisions and issue breakdown are my own. An AI assistant (Claude Code) was used only to polish the English wording.

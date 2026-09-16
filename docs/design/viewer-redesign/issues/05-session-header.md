@@ -36,4 +36,4 @@ a compact meta row: **CWD · BRANCH · MODE · FROM · TO · MODEL · DURATION �
 - Header + meta bar match the mockup in light and dark.
 - `make check` and `make test` pass.
 
-<!-- AI disclosure: fill in before posting. -->
+**AI disclosure:** The scope, decisions and issue breakdown are my own. An AI assistant (Claude Code) was used only to polish the English wording.
