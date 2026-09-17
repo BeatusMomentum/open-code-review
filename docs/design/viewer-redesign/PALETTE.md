@@ -30,9 +30,15 @@ Rules this table encodes:
 | `--accent-hover`   | `#14A83E`             | `#60E686`               | derived (darker light / lighter dark) |
 | `--accent-soft`    | `rgba(23,203,75,0.10)`| `rgba(43,222,94,0.10)`  | accent-green-soft |
 | `--accent-glow`    | `rgba(23,203,75,0.16)`| `rgba(43,222,94,0.12)`  | accent-green-hover tint |
+| `--link`           | `#177d35`             | `var(--accent)`         | AA-safe text/link green |
 
-`--link`, `--response-bg`, `--code-bg`, `--inline-code-bg`, `--text-faint` already reference
-other variables (`var(--accent)` etc.) — leave them as aliases; they inherit the new values.
+**Accessibility note on `--link`:** the mockup accent `#17CB4B` is only ~2.2:1 on white, so
+it fails WCAG AA as text. `--accent` keeps `#17CB4B` for fills, borders and active states, but
+**`--link` (and green text) uses a darker `#177d35`** (~5.3:1) in light mode. On dark surfaces
+the bright accent already clears AA, so `--link` reverts to `var(--accent)` there.
+
+`--response-bg`, `--code-bg`, `--inline-code-bg`, `--text-faint` remain aliases of other
+variables and inherit the new values automatically.
 
 ## Interactive tokens — add these (used by the per-screen work; not present in #1338 yet)
 
