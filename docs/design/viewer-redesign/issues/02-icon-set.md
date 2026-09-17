@@ -4,59 +4,51 @@
 
 ## Summary
 
-Add the exported 24×24 SVG icons to the viewer's embedded static assets and wire them into
-the templates as a consistent icon system, replacing ad-hoc glyphs/emoji.
+Add the UI icons the redesign mockups use to the viewer as offline, CSP-safe SVGs, and wire
+them into the templates. **Re-scoped 2026-09-17** — see the correction below; the original
+"rename and integrate seven exported SVGs" framing was based on a mislabeled export.
 
-## Design reference
+## Correction to the original scope
 
-The mockups use a small, uniform icon set (24×24) for the brand mark, back navigation,
-search, status/action affordances, etc. Source assets: 7 SVG icons from the design export
-(bundled as `assets/icon-1.svg` … `assets/icon-7.svg`).
+The exported design set (`容器 4*.svg`) turned out to be a **single brand/logo mark in
+black/white variants — not seven distinct icons** (all seven share identical path geometry).
+That brand mark is **already integrated** in #1338 (inlined as `.brand-icon` in
+`static/style.css`). So there is no seven-icon set to rename.
 
+What the mockups actually need is a small set of **five UI glyphs**. They have been sourced
+from **[Ant Design Icons](https://github.com/ant-design/ant-design-icons) (MIT)** — the same
+set the design reference renders — and are provided here, normalized to `fill="currentColor"`
+and ready to embed:
 
-> Note: the raw export names them all `容器 4*.svg` ("container" placeholder names) and a
-> quick check shows overlapping path data — confirm on the Figma side what each icon is, then
-> rename to meaningful English names as part of this issue.
+📁 https://github.com/alibaba/open-code-review/tree/docs/viewer-redesign-assets/docs/design/viewer-redesign/assets/icons
 
-## Current state
-
-- Icons today are inconsistent (inline unicode/emoji or none). Assets are embedded via
-  `//go:embed templates/*.html static/style.css static/session.js static/repos.js` in
-  `internal/viewer/server.go`.
+| File | Used for |
+|------|----------|
+| `chevron-left.svg` | back navigation; pagination "previous" |
+| `chevron-right.svg` | collapsed section toggle; pagination "next" |
+| `chevron-down.svg` | expanded section toggle |
+| `search.svg` | repositories search box |
+| `settings.svg` | settings / theme control |
 
 ## Scope
 
-- [ ] Rename the exported SVGs to meaningful English names (e.g. `icon-back.svg`,
-      `icon-search.svg`, `icon-logo.svg`, …) and place them under
-      `internal/viewer/static/icons/`.
-- [ ] Extend the `//go:embed` directive in `server.go` to include the new icon dir, and
-      confirm they are served under `GET /static/…`.
-- [ ] Provide a CSP-safe way to render icons (inline `<svg>` via a template partial, or
-      `<img src="/static/icons/…">`). Prefer inline `<use>`/symbol sprite or a template
-      helper so `currentColor` works in both themes.
-- [ ] Document the icon inventory (name → usage) in a short comment or the partial.
+- [ ] Copy the five SVGs into `internal/viewer/static/icons/`.
+- [ ] Extend the `//go:embed` directive in `internal/viewer/server.go` to include the icons dir; confirm they serve under `GET /static/…`.
+- [ ] Render them CSP-safe — inline `<svg>` via a template partial, or `<img src="/static/icons/…">`; prefer a form where `currentColor` works so icons adapt to light and dark.
+- [ ] Replace the current ad-hoc glyphs/unicode in the templates (back nav, collapse/expand toggles, search, pagination) with these icons.
+- [ ] Add MIT attribution for Ant Design Icons in `internal/viewer/static/icons/` (a short `NOTICE`/`README`); do **not** add the project's Apache SPDX header to the third-party SVGs.
+- [ ] Update/extend viewer tests as needed; keep the read-only route contract (`TestMux_HasNoWriteRoutes`) and the CSP/security-header tests green.
 
-## Out of scope
+## Non-goals
 
-- Applying icons to each screen's final layout (done incrementally in #1322–#1328; this issue
-  lands the assets + rendering mechanism and swaps the obvious ones like back/search/logo).
-
-## Acceptance criteria
-
-- Icons render in light and dark, inheriting color where appropriate.
-- No CSP violations (check the browser console; the viewer sets strict headers in
-  `internal/viewer/securityheaders.go`).
-- `make check` and `make test` pass; SVGs added to `.gitattributes` if needed for line
-  endings, SPDX added where applicable.
-
-## Notes
-
-- Keep SVGs small; strip editor cruft/`<defs>` bloat from the Figma export.
+- The brand/logo mark (already shipped in #1338).
+- The remote iconfont `<script>` and the `antd` runtime from the reference — **must not** be introduced (CSP + offline + bundle size).
+- Per-screen layout changes (owned by the per-screen issues).
 
 ## Parallelization & conflicts
 
 Foundational — land alongside/after #1320 and before the per-screen issues. Mostly adds new
-files (icon assets + a render partial) plus one `//go:embed` line, so it rarely conflicts with
-the screen work.
+files (icon assets + a render partial) plus one `//go:embed` line and small template edits, so
+it rarely conflicts with the screen work.
 
 **AI disclosure:** The scope, decisions and issue breakdown are my own. An AI assistant (Claude Code) was used only to polish the English wording.
